@@ -7,6 +7,9 @@ import VeeValidate from 'vee-validate';
 import store from './store';
 import router from './router';
 import axios from 'axios';
+import 'prismjs';
+import Prism from 'vue-prism-component';
+import Antd from 'ant-design-vue'
 
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faSignInAlt, faChevronRight} from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +18,6 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 import utils from './utils';
 import messages from '@/lang/en';
-
 /**
  * Config
  */
@@ -29,6 +31,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 /**
  * Plugins
  */
+Vue.use(Antd);
 Vue.use(Vuex);
 Vue.use(VueI18n);
 Vue.use(VueRouter);
@@ -97,22 +100,7 @@ library.add(faGithub);
  * Components
  */
 Vue.component('icon', FontAwesomeIcon);
-
-
-Vue.directive('dropdown', {
-  bind(el) {
-    el.dataset.open = 'false';
-  },
-  inserted: (el) => {
-    const parent = el.parentElement;
-    el.addEventListener('click', (e) => {
-      ['hidden', 'block'].forEach((cssClass) => {
-        parent.querySelector('.dropdown-menu').classList.toggle(cssClass);
-      });
-    });
-  },
-});
-
+Vue.component('prism', Prism);
 
 export {i18n, store, router};
 export default Vue;

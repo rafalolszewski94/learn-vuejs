@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-center justify-between flex-wrap py-6 -mx-3">
     <a class="flex items-center flex-no-shrink mr-6 no-underline" :class="logoClasses" href="/">
-      <span class="font-semibold text-xl tracking-tight appName">{{ $appName }}</span>
+      <span class="font-semibold text-xl tracking-tight appName"></span>
     </a>
     <div class="block lg:hidden">
       <button
